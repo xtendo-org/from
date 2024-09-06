@@ -1,0 +1,52 @@
+name:                from
+version:             0.1.0.0
+github:              "xtendo-org/from"
+license:             Apache-2.0
+author:              "XT"
+maintainer:          "git@xtendo.org"
+copyright:           "Copyright (C) 2024 XT"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+synopsis:            Typeclass for types that can be converted from/to each other
+category:            Typeclass
+
+description:         "This package provides the typeclass `From` and `TryFrom`. For the actual instances, see other packages like `from-string`."
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+  default-extensions:
+  - LambdaCase
+  - NoFieldSelectors
+  - OverloadedRecordDot
+  - OverloadedStrings
+  - TemplateHaskell
+
+tests:
+  from-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - from

@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           from
+version:        0.1.0.0
+synopsis:       Typeclass for types that can be converted from/to each other
+description:    This package provides the typeclass `From` and `TryFrom`. For the actual instances, see other packages like `from-string`.
+category:       Typeclass
+homepage:       https://github.com/xtendo-org/from#readme
+bug-reports:    https://github.com/xtendo-org/from/issues
+author:         XT
+maintainer:     git@xtendo.org
+copyright:      Copyright (C) 2024 XT
+license:        Apache-2.0
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/xtendo-org/from
+
+library
+  exposed-modules:
+      From
+  other-modules:
+      Paths_from
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+      NoFieldSelectors
+      OverloadedRecordDot
+      OverloadedStrings
+      TemplateHaskell
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite from-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_from
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base
+    , from
+  default-language: Haskell2010
